@@ -5,18 +5,23 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import Products from "./pages/Products"
 
+// Import Contexts
+import { CartProvider } from "./contexts/CartContext"
+
 // Import Styles
 import "./app.css"
 
 
 function App() {
   return (
-      <BrowserRouter>
+    <BrowserRouter>
+      <CartProvider>
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/products" element={<Products />}/>
         </Routes>
-      </BrowserRouter>
+      </CartProvider>
+    </BrowserRouter>
   )
 }
 
