@@ -2,7 +2,7 @@
 -[ d ] Design the UI
 -[ d ] Build the home page
 -[ ] Build the products page
--[ ] Build the cart page
+-[ d ] Build the cart page
 -[ ] Build the sign in / up
 
 # Home Page - done
@@ -127,6 +127,10 @@
     - [ d ] Add Cart page routing
     - [ d ] Add Nav Bar Link / icon to nav bar
     - [ ] Display selected products
+        - [ ] debug Cart.jsx
+        - [ ] debug ConfirmOrderModule
+        - [ ] debug  cart context functions implementation in card, product module
+        - [ ] Add added to cart message when clicking add to cart button
     - [ ] Display total price
     - [ ] Confirm Order Button:
         - [ ] Opens a popup/modal showing:

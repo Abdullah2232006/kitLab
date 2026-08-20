@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
+import { useCartContext } from '../contexts/CartContext';
 import styles from './ProductModal.module.css';
 
 function ProductModal({ product, onClose }) {
+    const { addProduct } = useCartContext();
+
     // Close on Escape key press
     useEffect(() => {
         const handleKeyDown = (e) => {
@@ -66,7 +69,13 @@ function ProductModal({ product, onClose }) {
                                 <span className={styles.priceLabel}>Price</span>
                                 <span className={styles.price}>${product.price}</span>
                             </div>
-                            <button className={styles.cartBtn}>Add to Cart</button>
+                            <button 
+                                className={styles.cartBtn}
+                                onClick={() => addProduct(product)}
+                                disabled={product.stock <= 0}
+                            >
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </div>

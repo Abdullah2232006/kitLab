@@ -1,8 +1,10 @@
 import styles from './Card.module.css'
 import ProductModal from './ProductModal'
 import { useState } from 'react'
+import { useCartContext } from '../contexts/CartContext'
 
 function Card({ product }) {
+    const { addProduct } = useCartContext()
     const imageSrc = product.thumbnail
     const price = product.price
     const titleLimit = 23
@@ -64,7 +66,13 @@ function Card({ product }) {
                         <span className={styles.price}>{price}</span>
                     </div>
 
-                    <button className={styles.cartBtn}>Add to Cart</button>
+                    <button 
+                        className={styles.cartBtn}
+                        onClick={() => addProduct(product)}
+                        disabled={product.stock <= 0}
+                    >
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 

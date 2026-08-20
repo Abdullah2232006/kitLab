@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom"
+import { useCartContext } from "../contexts/CartContext"
 
 import styles from "./NavBar.module.css"
 
 function NavBar() {
+    const { totalItems } = useCartContext()
+
     return (
         <>
         <nav className={styles.navbar}>
@@ -21,6 +24,9 @@ function NavBar() {
                         <circle cx="20" cy="21" r="1"></circle>
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                     </svg>
+                    {totalItems > 0 && (
+                        <span className={styles.cartBadge}>{totalItems}</span>
+                    )}
                 </Link>
                 <a href="#" className={styles.signInBtn}>Log In</a>
                 {/* #TODO: Add Log In Functionality */}
