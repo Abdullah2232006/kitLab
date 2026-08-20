@@ -1,8 +1,8 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
-export const CartContext = createContext();
+const CartContext = createContext()
 
-export function CartProvider({ children }) {
+function CartProvider({ children }) {
     // Cart array state
     const [cart, setCart] = useState(() => {
         try {
@@ -48,7 +48,7 @@ export function CartProvider({ children }) {
                 return prevCart.map(item =>
                     item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
                 );
-            } else if (product.stock === 0 || !product.stock || existingProduct.quantity >= product.stock) {
+            } else if (product.stock === 0 || !product.stock || existingProduct?.quantity >= product.stock) {
                 alert(`Only ${product.stock} units available in stock!`);
                 return prevCart;
             } else {
@@ -91,6 +91,26 @@ export function CartProvider({ children }) {
         setCart([]);
     };
 
+    // Calculate Total Price
+    const totalPrice = () => {
+        return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    }
+
+    // Calculate Total Items
+    const totalItems = () => {
+        return cart.reduce((total, item) => total + item.quantity, 0);
+    }
+
+    // Calculate Order Price
+    const orderPrice = () => {
+        return orders.reduce((total, order) => total + order.price * order.quantity, 0);
+    }
+
+    // Calculate Order Items
+    const orderItems = () => {
+        return orders.reduce((total, order) => total + order.quantity, 0);
+    }
+
 
     return(
         <CartContext.Provider value={{
@@ -106,3 +126,15 @@ export function CartProvider({ children }) {
         </CartContext.Provider>
     )
 }
+
+function useCartContext () {
+    const context = useContext(CartContext)
+
+    if (!context) {
+        throw new Error("useCartContext must be used within a CartProvider");
+    }
+
+    return context;
+}
+
+export { CartContext, CartProvider, useCartContext }
