@@ -113,19 +113,19 @@
 
 ## Cart Section Implementation Plan:
 
-- [ ] Create a Cart Context (Logic): 
+- [ d ] Create a Cart Context (Logic): 
     - [ d ] It will be called in App.jsx
-    - [ ] It is responsible for cart functionality:
+    - [ d ] It is responsible for cart functionality:
         - [ d ] Cart array state
         - [ d ] Orders array state
         - [ d ] Add to cart function
         - [ d ] Remove from cart function
         - [ d ] Increase quantity function
         - [ d ] Decrease quantity function
-        - [  ] Add local storage to all functions
+        - [ d ] Add local storage to all functions
 - [ ] Create Cart page:
-    - [ ] Add Nav Bar Link / icon to nav bar
     - [ ] Add Cart page routing
+    - [ ] Add Nav Bar Link / icon to nav bar
     - [ ] Display selected products
     - [ ] Display total price
     - [ ] Confirm Order Button:
