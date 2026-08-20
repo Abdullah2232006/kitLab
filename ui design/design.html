@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KitLab - Electronics Kits & Components</title>
+    <style>
+        /* =========================================
+           COLOR PALETTE & DESIGN TOKENS
+           ========================================= */
+        :root {
+            /* Core Colors */
+            --cyan-500: #0891b2;
+            --cyan-600: #0e7490;
+            --cyan-100: #cffafe;
+            
+            --gray-50: #f9fafb;  /* Body background */
+            --gray-100: #f3f4f6; /* Surface / Input bg */
+            --gray-200: #e5e7eb; /* Borders */
+            --gray-300: #d1d5db; /* Borders hover */
+            --gray-500: #6b7280; /* Muted text */
+            --gray-700: #374151; /* Body text */
+            --gray-900: #111827; /* Headings */
+            
+            --white: #ffffff;
+            --red-500: #ef4444; /* Error/Delete */
+            
+            /* Typography */
+            --font-heading: 'Inter', system-ui, sans-serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --font-mono: 'Roboto Mono', 'Courier New', monospace;
+            
+            /* Spacing (8px base) */
+            --sp-1: 8px;
+            --sp-2: 16px;
+            --sp-3: 24px;
+            --sp-4: 32px;
+            --sp-6: 48px;
+            --sp-8: 64px;
+            
+            /* Layout */
+            --radius-card: 8px;
+            --radius-btn: 6px;
+            --radius-input: 4px;
+            --max-width: 1200px;
+        }
+
+        /* =========================================
+           RESET & BASE STYLES
+           ========================================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--gray-50);
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--gray-900);
+            font-weight: 600;
+        }
+
+        .mono {
+            font-family: var(--font-mono);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================================
+           UTILITY & LAYOUT
+           ========================================= */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--sp-2);
+        }
+
+        .flex-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* =========================================
+           BUTTONS
+           ========================================= */
+        button, .btn {
+            font-family: var(--font-body);
+            font-size: 14px;
+            padding: var(--sp-1) var(--sp-2);
+            border-radius: var(--radius-btn);
+            cursor: pointer;
+            border: 1px solid transparent;
+            font-weight: 500;
+            transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+        }
+
+        .btn-primary {
+            background-color: var(--cyan-500);
+            color: var(--white);
+            border-color: var(--cyan-500);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--cyan-600);
+            border-color: var(--cyan-600);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--cyan-500);
+            border-color: var(--cyan-500);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--cyan-100);
+        }
+
+        .btn-sm {
+            padding: 4px var(--sp-1);
+            font-size: 13px;
+        }
+
+        .btn-danger {
+            color: var(--red-500);
+            background: transparent;
+            border: none;
+        }
+        .btn-danger:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================================
+           FORM INPUTS
+           ========================================= */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: var(--sp-2);
+        }
+
+        .input-group label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gray-900);
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        input[type="password"], 
+        select {
+            font-family: var(--font-body);
+            background-color: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-input);
+            padding: var(--sp-1);
+            font-size: 14px;
+            outline: none;
+            color: var(--gray-900);
+        }
+
+        input:focus, select:focus {
+            border-color: var(--cyan-500);
+        }
+
+        /* =========================================
+           NAVBAR
+           ========================================= */
+        .navbar {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            padding: var(--sp-1) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--gray-900);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .logo span {
+            color: var(--cyan-500);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--sp-3);
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-700);
+            padding-bottom: 2px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--cyan-500);
+            border-bottom: 2px solid var(--cyan-500);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-2);
+        }
+
+        .cart-btn {
+            position: relative;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-btn);
+            padding: 6px var(--sp-1);
+            cursor: pointer;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--cyan-500);
+            color: var(--white);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        .hero {
+            background-color: var(--white);
+            padding: var(--sp-8) 0;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: var(--sp-2);
+        }
+
+        .hero p {
+            color: var(--gray-500);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto var(--sp-4);
+        }
+
+        /* =========================================
+           FEATURES SECTION
+           ========================================= */
+        .features {
+            padding: var(--sp-6) 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--sp-3);
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            margin-top: var(--sp-1);
+            font-size: 16px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-top: 4px;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--cyan-100);
+            border-radius: var(--radius-card);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cyan-500);
+            font-weight: bold;
+            font-family: var(--font-mono);
+        }
+
+        /* =========================================
+           PRODUCT CARD COMPONENT
+           ========================================= */
+        .section-title {
+            font-size: 24px;
+            margin-bottom: var(--sp-3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--sp-3);
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-card);
+            padding: var(--sp-2);
+            display: flex;
+            flex-direction: column;
+            gap: var(--sp-1);
+        }
+
+        .product-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 180px;
+            background-color: var(--gray-100);
+            border-radius: var(--radius-input);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-500);
+            font-family: var(--font-mono);
+            font-size: 12px;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-badge {
+            background: var(--cyan-100);
+            color: var(--cyan-600);
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: var(--radius-input);
+            font-weight: 500;
+        }
+
+        .product-id {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--gray-900);
+        }
+
+        .product-price {
+            font-family: var(--font-mono);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: var(--sp-1);
+            margin-top: var(--sp-1);
+        }
+
+        .product-actions .btn {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* =========================================
+           PRODUCTS PAGE (FILTERS)
+           ========================================= */
+        .products-layout {
+            display: flex;
+            gap: var(--sp-4);
+            padding: var(--sp-4) 0;
+        }
+
+        .filters-sidebar {
+            width: 240px;
+            flex-shrink: 0;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-card);
+            padding: var(--sp-2);
+            align-self: flex-start;
+        }
+
+        .filters-sidebar h3 {
+            font-size: 16px;
+            margin-bottom: var(--sp-2);
+            padding-bottom: var(--sp-1);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .filter-group {
+            margin-bottom: var(--sp-3);
+        }
+
+        .filter-group label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 4px;
+            color: var(--gray-700);
+        }
+
+        .main-products {
+            flex: 1;
+        }
+
+        .products-topbar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--sp-3);
+            gap: var(--sp-2);
+        }
+
+        .products-topbar input {
+            flex: 1;
+        }
+
+        /* =========================================
+           AUTH PAGE
+           ========================================= */
+        .auth-container {
+            display: flex;
+            gap: var(--sp-4);
+            padding: var(--sp-6) 0;
+            justify-content: center;
+        }
+
+        .auth-form {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-card);
+            padding: var(--sp-3);
+            width: 400px;
+        }
+
+        .auth-form h2 {
+            font-size: 20px;
+            margin-bottom: var(--sp-3);
+            text-align: center;
+        }
+
+        /* =========================================
+           CART SIDEBAR
+           ========================================= */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: var(--white);
+            border-left: 1px solid var(--gray-200);
+            box-shadow: -4px 0 10px rgba(0,0,0,0.05);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.2s ease-in-out;
+        }
+
+        .cart-sidebar.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: var(--sp-2);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: var(--sp-2);
+        }
+
+        .cart-item {
+            display: flex;
+            gap: var(--sp-2);
+            padding: var(--sp-1) 0;
+            border-bottom: 1px solid var(--gray-200);
+            align-items: center;
+        }
+
+        .cart-item-img {
+            width: 56px;
+            height: 56px;
+            background: var(--gray-100);
+            border-radius: var(--radius-input);
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info h4 {
+            font-size: 14px;
+        }
+
+        .cart-item-info p {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .qty-control button {
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .cart-footer {
+            padding: var(--sp-2);
+            border-top: 1px solid var(--gray-200);
+            background: var(--gray-50);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--sp-2);
+            font-weight: 600;
+        }
+
+        .cart-total span:last-child {
+            font-family: var(--font-mono);
+        }
+
+        /* =========================================
+           MODAL
+           ========================================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 300;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: var(--radius-card);
+            width: 500px;
+            padding: var(--sp-3);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: var(--sp-1);
+            right: var(--sp-1);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--gray-500);
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        .footer {
+            background: var(--white);
+            border-top: 1px solid var(--gray-200);
+            padding: var(--sp-4) 0;
+            margin-top: var(--sp-6);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--sp-3);
+        }
+
+        .footer h4 {
+            font-size: 14px;
+            margin-bottom: var(--sp-1);
+        }
+
+        .footer a {
+            display: block;
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-bottom: 4px;
+        }
+
+        .footer a:hover {
+            color: var(--cyan-500);
+        }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+        @media (max-width: 900px) {
+            .product-grid, .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .products-layout {
+                flex-direction: column;
+            }
+            .filters-sidebar {
+                width: 100%;
+            }
+            .auth-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .product-grid, .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .nav-links {
+                display: none; /* Hamburger would go here in prod */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container flex-row">
+            <div class="logo">Kit<span>Lab</span></div>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#products-page">Products</a>
+                <a href="#auth-page">Account</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-outline btn-sm">Login</button>
+                <button class="cart-btn" onclick="toggleCart()">
+                    Cart <span class="cart-badge">3</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <section id="home-page">
+        <!-- Hero -->
+        <div class="hero">
+            <div class="container">
+                <h1>Components for<br>Every Maker</h1>
+                <p>From原型boards to microcontrollers, get the parts you need with trusted specs and fast shipping.</p>
+                <button class="btn btn-primary" style="padding: 12px 32px; font-size: 16px;" onclick="document.getElementById('products-page').scrollIntoView()">Browse Catalog</button>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">MS</div>
+                    <h3>Maker Specified</h3>
+                    <p>Hand-picked for quality and reliability in real projects.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">FA</div>
+                    <h3>Fast Shipping</h3>
+                    <p>Same-day dispatch on orders placed before 3pm EST.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">DS</div>
+                    <h3>Datasheets Included</h3>
+                    <p>Full technical documentation available on every part.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Products -->
+        <div class="container" style="padding: var(--sp-6) 0;">
+            <div class="section-title">
+                <h2>Best Sellers</h2>
+                <a href="#products-page" style="font-size: 14px; color: var(--cyan-500);">View All →</a>
+            </div>
+            <div class="product-grid">
+                <!-- Card 1 -->
+                <div class="product-card">
+                    <div class="product-img">[IMG]</div>
+                    <div class="product-meta">
+                        <span class="category-badge">Microcontroller</span>
+                        <span class="product-id">#KIT-4092</span>
+                    </div>
+                    <h3 class="product-title">ESP32 DevKit V1</h3>
+                    <span class="product-price">$12.99</span>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="openModal('detail')">Add to Cart</button>
+                        <button class="btn btn-outline" onclick="openModal('detail')">View Details</button>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="product-card">
+                    <div class="product-img">[IMG]</div>
+                    <div class="product-meta">
+                        <span class="category-badge">Sensors</span>
+                        <span class="product-id">#SEN-8831</span>
+                    </div>
+                    <h3 class="product-title">BME280 Temp/Hum/Press</h3>
+                    <span class="product-price">$8.50</span>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="openModal('detail')">Add to Cart</button>
+                        <button class="btn btn-outline" onclick="openModal('detail')">View Details</button>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="product-card">
+                    <div class="product-img">[IMG]</div>
+                    <div class="product-meta">
+                        <span class="category-badge">Passives</span>
+                        <span class="product-id">#PAS-1100</span>
+                    </div>
+                    <h3 class="product-title">Resistor Kit 1/4W 500pc</h3>
+                    <span class="product-price">$14.99</span>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="openModal('detail')">Add to Cart</button>
+                        <button class="btn btn-outline" onclick="openModal('detail')">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS PAGE -->
+    <section id="products-page" class="container">
+        <div class="products-layout">
+            <!-- Sidebar Filters -->
+            <aside class="filters-sidebar">
+                <h3>Filters</h3>
+                <div class="filter-group">
+                    <label>Category</label>
+                    <select>
+                        <option>All Categories</option>
+                        <option>Microcontrollers</option>
+                        <option>Sensors</option>
+                        <option>Passives</option>
+                        <option>Connectors</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Price Range</label>
+                    <select>
+                        <option>Any Price</option>
+                        <option>Under $10</option>
+                        <option>$10 - $25</option>
+                        <option>Over $25</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>In Stock</label>
+                    <select>
+                        <option>All</option>
+                        <option>In Stock Only</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;">Apply Filters</button>
+            </aside>
+
+            <!-- Main Product Area -->
+            <div class="main-products">
+                <div class="products-topbar">
+                    <input type="text" placeholder="Search part #, name, or category...">
+                    <select>
+                        <option>Sort: Featured</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest</option>
+                    </select>
+                </div>
+                <div class="product-grid">
+                    <!-- Reusing cards to show grid layout -->
+                    <div class="product-card">
+                        <div class="product-img">[IMG]</div>
+                        <div class="product-meta"><span class="category-badge">Microcontroller</span><span class="product-id">#KIT-4092</span></div>
+                        <h3 class="product-title">ESP32 DevKit V1</h3>
+                        <span class="product-price">$12.99</span>
+                        <div class="product-actions"><button class="btn btn-primary">Add to Cart</button><button class="btn btn-outline" onclick="openModal('detail')">View Details</button></div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">[IMG]</div>
+                        <div class="product-meta"><span class="category-badge">Sensors</span><span class="product-id">#SEN-8831</span></div>
+                        <h3 class="product-title">BME280 Temp/Hum/Press</h3>
+                        <span class="product-price">$8.50</span>
+                        <div class="product-actions"><button class="btn btn-primary">Add to Cart</button><button class="btn btn-outline" onclick="openModal('detail')">View Details</button></div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">[IMG]</div>
+                        <div class="product-meta"><span class="category-badge">Passives</span><span class="product-id">#PAS-1100</span></div>
+                        <h3 class="product-title">Resistor Kit 1/4W 500pc</h3>
+                        <span class="product-price">$14.99</span>
+                        <div class="product-actions"><button class="btn btn-primary">Add to Cart</button><button class="btn btn-outline" onclick="openModal('detail')">View Details</button></div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">[IMG]</div>
+                        <div class="product-meta"><span class="category-badge">Connectors</span><span class="product-id">#CON-4421</span></div>
+                        <h3 class="product-title">JST-XH Connector Kit</h3>
+                        <span class="product-price">$9.99</span>
+                        <div class="product-actions"><button class="btn btn-primary">Add to Cart</button><button class="btn btn-outline" onclick="openModal('detail')">View Details</button></div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">[IMG]</div>
+                        <div class="product-meta"><span class="category-badge">Power</span><span class="product-id">#PWR-9012</span></div>
+                        <h3 class="product-title">5V 3A Buck Converter</h3>
+                        <span class="product-price">$4.25</span>
+                        <div class="product-actions"><button class="btn btn-primary">Add to Cart</button><button class="btn btn-outline" onclick="openModal('detail')">View Details</button></div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">[IMG]</div>
+                        <div class="product-meta"><span class="category-badge">Microcontroller</span><span class="product-id">#KIT-5540</span></div>
+                        <h3 class="product-title">Arduino Nano 33 IoT</h3>
+                        <span class="product-price">$22.00</span>
+                        <div class="product-actions"><button class="btn btn-primary">Add to Cart</button><button class="btn btn-outline" onclick="openModal('detail')">View Details</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTH PAGE -->
+    <section id="auth-page" class="container">
+        <div class="auth-container">
+            <div class="auth-form">
+                <h2>Sign In</h2>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="maker@kitlab.com">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="••••••••">
+                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 8px;">Sign In</button>
+            </div>
+            <div class="auth-form">
+                <h2>Create Account</h2>
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Jane Doe">
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="maker@kitlab.com">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="••••••••">
+                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 8px;">Create Account</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3 style="font-size: 18px;">Your Cart (3)</h3>
+            <button class="btn-danger" onclick="toggleCart()">Close</button>
+        </div>
+        <div class="cart-items">
+            <div class="cart-item">
+                <div class="cart-item-img"></div>
+                <div class="cart-item-info">
+                    <h4>ESP32 DevKit V1</h4>
+                    <p>#KIT-4092 · $12.99</p>
+                </div>
+                <div class="qty-control">
+                    <button>-</button>
+                    <span style="font-family: var(--font-mono); font-size: 14px;">1</span>
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <div class="cart-item-img"></div>
+                <div class="cart-item-info">
+                    <h4>BME280 Sensor</h4>
+                    <p>#SEN-8831 · $8.50</p>
+                </div>
+                <div class="qty-control">
+                    <button>-</button>
+                    <span style="font-family: var(--font-mono); font-size: 14px;">2</span>
+                    <button>+</button>
+                </div>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal:</span>
+                <span>$29.99</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="openModal('order')">Confirm Order</button>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <!-- Product Detail Modal -->
+        <div class="modal-content" id="detailModal" style="display: none;">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div style="display: flex; gap: 24px;">
+                <div class="product-img" style="width: 200px; height: 200px;">[IMG]</div>
+                <div>
+                    <span class="category-badge">Microcontroller</span>
+                    <h2 style="margin-top: 8px; font-size: 22px;">ESP32 DevKit V1</h2>
+                    <p class="mono" style="color: var(--gray-500); font-size: 13px; margin-top: 4px;">#KIT-4092</p>
+                    <p style="margin-top: 16px; font-size: 14px;">WiFi + Bluetooth dual-mode microcontroller. 4MB Flash, 520KB SRAM. Perfect for IoT prototyping.</p>
+                    <span class="product-price" style="display: block; margin-top: 24px; font-size: 24px;">$12.99</span>
+                    <div style="margin-top: 24px; display: flex; gap: 16px;">
+                        <button class="btn btn-primary">Add to Cart</button>
+                        <button class="btn btn-outline">View Datasheet</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Confirmation Modal -->
+        <div class="modal-content" id="orderModal" style="display: none; text-align: center;">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div style="padding: 32px 0;">
+                <div class="feature-icon" style="width: 64px; height: 64px; font-size: 24px; margin: 0 auto 16px;">✓</div>
+                <h2 style="font-size: 24px;">Order Confirmed</h2>
+                <p style="color: var(--gray-500); margin-top: 8px;">Your order #KL-9921 has been placed. Check your email for shipping details.</p>
+                <button class="btn btn-primary" style="margin-top: 24px;">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>KitLab</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Shipping Info</a>
+                    <a href="#">Returns</a>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <a href="#">Datasheets</a>
+                    <a href="#">Forum</a>
+                    <a href="#">Tutorials</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Cart Sidebar Toggle
+        function toggleCart() {
+            const sidebar = document.getElementById('cartSidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        // Modal Logic
+        function openModal(type) {
+            const overlay = document.getElementById('modalOverlay');
+            const detail = document.getElementById('detailModal');
+            const order = document.getElementById('orderModal');
+
+            overlay.classList.add('open');
+            
+            if (type === 'detail') {
+                detail.style.display = 'block';
+                order.style.display = 'none';
+            } else if (type === 'order') {
+                detail.style.display = 'none';
+                order.style.display = 'block';
+            }
+        }
+
+        function closeModal(event) {
+            // If called directly or by clicking the overlay background
+            if (!event || event.target.id === 'modalOverlay') {
+                document.getElementById('modalOverlay').classList.remove('open');
+            }
+        }
+    </script>
+</body>
+</html>
