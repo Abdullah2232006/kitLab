@@ -1,0 +1,226 @@
+/* Backdrop Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* Modal Content Card */
+.modalContent {
+    position: relative;
+    background-color: var(--card-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--main-border-radius);
+    max-width: 750px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.25s ease-out;
+}
+
+/* Close Button */
+.closeBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-background-color);
+    color: var(--main-font-color);
+    font-size: 1.5rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+    background-color: var(--secondary-background-color);
+    color: var(--heading-font-color);
+    transform: scale(1.05);
+}
+
+/* Modal Body Layout */
+.modalBody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+/* Image Section */
+.imageContainer {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    border-radius: var(--main-border-radius);
+    overflow: hidden;
+    background-color: var(--secondary-background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Info Section */
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.badgesContainer {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+}
+
+.category {
+    background-color: var(--secondary-background-color);
+    color: var(--heading-font-color);
+    border: 1px solid var(--border-color);
+}
+
+.inStock {
+    background-color: rgba(240, 253, 244, 0.95);
+    color: #15803d;
+    border: 1px solid rgba(187, 247, 208, 0.9);
+}
+
+.outOfStock {
+    background-color: rgba(254, 242, 242, 0.95);
+    color: #b91c1c;
+    border: 1px solid rgba(254, 202, 202, 0.9);
+}
+
+.title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--heading-font-color);
+    line-height: 1.35;
+    margin-bottom: 1rem;
+}
+
+.descriptionSection {
+    margin-bottom: 1.5rem;
+}
+
+.sectionHeading {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--secondary-font-color);
+    margin-bottom: 0.4rem;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: var(--main-font-color);
+    line-height: 1.6;
+}
+
+/* Footer Section */
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto;
+}
+
+.priceContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.priceLabel {
+    font-size: 0.75rem;
+    color: var(--main-font-color);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--secondary-font-color);
+}
+
+.cartBtn {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: white;
+    background-color: var(--secondary-font-color);
+    border: none;
+    border-radius: var(--main-border-radius);
+    padding: 0.65rem 1.25rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.cartBtn:hover {
+    background-color: rgb(14, 116, 144);
+    transform: translateY(-1px);
+}
+
+/* Responsive Modal for Tablets & Mobile */
+@media (max-width: 650px) {
+    .modalBody {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+
+    .imageContainer {
+        height: 200px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

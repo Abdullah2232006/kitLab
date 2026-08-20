@@ -1,0 +1,49 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--card-background-color);
+    width: 100%;
+    border-bottom: 2px solid var(--border-color);
+    height: 10vh;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.links a {
+    font-weight: 600;
+    border-bottom: 2px solid var(--card-background-color);
+    padding: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.links a:hover {
+    color: var(--secondary-font-color);
+    border-color: var(--secondary-font-color);
+}
+
+.signInBtn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--main-border-radius);
+    transition: all 0.3s ease-in-out;
+}
+
+.signInBtn:hover {
+    color: var(--secondary-font-color);
+    border-color: var(--secondary-font-color);
+    background-color: var(--main-background-color);
+}

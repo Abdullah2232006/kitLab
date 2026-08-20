@@ -1,0 +1,53 @@
+:root {
+    /* Primary Brand & Theme Colors */
+    /* --primary-color-hover: #0e7490;
+    --primary-color-light: #cffafe; */
+
+    /* Background Colors */
+    --main-background-color: #f9fafb;
+    --secondary-background-color: #f3f4f6;
+    --card-background-color: #ffffff;
+
+    /* Text & Font Colors */
+    --main-font-color: #374151;
+    --secondary-font-color: #0891b2;
+    --heading-font-color: #111827;
+
+    /* Border Colors */
+    --border-color: #e5e7eb;
+
+    /* Status & Utility Colors */
+    /* --white-color: #ffffff;
+    --danger-color: #ef4444; */
+
+    /* Typography Families */
+    --font-heading: 'Inter', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-mono: 'Roboto Mono', 'Courier New', monospace;
+
+    /* Spacing System (8px base) */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 3rem;
+
+    /* Layout & Component Radii */
+    --main-border-radius: 0.5rem;
+    --secondary-border-radius: 0.25rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--main-background-color);
+    color: var(--main-font-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-font-color);
+}

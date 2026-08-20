@@ -1,0 +1,199 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Arduino Uno R3 Ultimate Starter Kit",
+      "description": "Comprehensive starter kit with Arduino Uno R3, breadboard, LEDs, resistors, motors, and detailed tutorial guide.",
+      "price": 49.99,
+      "category": "Starter Kits",
+      "stock": 35,
+      "isBestProduct": true,
+      "images": [
+        "https://images.unsplash.com/photo-1553406830-ef2513450d76?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1553406830-ef2513450d76?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 2,
+      "title": "ESP32 Wi-Fi & Bluetooth Dev Kit",
+      "description": "Dual-core ESP32 microcontroller board with integrated Wi-Fi, Bluetooth BLE, OLED screen, and IoT sensors.",
+      "price": 24.99,
+      "category": "IoT & Wireless",
+      "stock": 50,
+      "isBestProduct": true,
+      "images": [
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 3,
+      "title": "37-in-1 Sensor Modules Pack",
+      "description": "Essential collection of 37 sensors including ultrasonic, temperature, humidity, motion, and flame sensors.",
+      "price": 29.99,
+      "category": "Sensors & Modules",
+      "stock": 40,
+      "isBestProduct": false,
+      "images": [
+        "https://images.unsplash.com/photo-1608564697071-ddf911d81370?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1608564697071-ddf911d81370?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 4,
+      "title": "Raspberry Pi 4 Model B Super Kit",
+      "description": "High-performance single-board computer kit with 4GB RAM, case, power supply, micro-HDMI cable, and SD card.",
+      "price": 99.99,
+      "category": "Starter Kits",
+      "stock": 20,
+      "isBestProduct": true,
+      "images": [
+        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 5,
+      "title": "4WD Smart Robot Car Chassis Kit",
+      "description": "Four-wheel drive robot car chassis kit with speed encoders, DC motors, battery holder, and motor driver board.",
+      "price": 44.99,
+      "category": "Robotics & Motors",
+      "stock": 18,
+      "isBestProduct": true,
+      "images": [
+        "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 6,
+      "title": "Complete Electronics Solderless Breadboard Kit",
+      "description": "Includes 830-point breadboard, jumper wires, power supply module, precision resistors, and LED pack.",
+      "price": 19.99,
+      "category": "Components",
+      "stock": 65,
+      "isBestProduct": false,
+      "images": [
+        "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 7,
+      "title": "STM32 Nucleo Development Board Kit",
+      "description": "ARM Cortex-M4 32-bit microcontroller dev kit featuring integrated ST-LINK debugger and Arduino UNO shield headers.",
+      "price": 22.50,
+      "category": "Microcontrollers",
+      "stock": 25,
+      "isBestProduct": false,
+      "images": [
+        "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 8,
+      "title": "OLED & LCD Display Module Bundle",
+      "description": "Bundle featuring 0.96 inch I2C OLED display, 16x2 LCD module with I2C adapter, and 1.8 inch TFT screen.",
+      "price": 18.99,
+      "category": "Sensors & Modules",
+      "stock": 30,
+      "isBestProduct": false,
+      "images": [
+        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 9,
+      "title": "Stepper & Servo Motor Driver Kit",
+      "description": "NEMA 17 stepper motor, L298N dual H-bridge motor driver, micro servos, and PWM controller module.",
+      "price": 34.99,
+      "category": "Robotics & Motors",
+      "stock": 22,
+      "isBestProduct": false,
+      "images": [
+        "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 10,
+      "title": "ESP8266 NodeMCU Smart Home Kit",
+      "description": "Complete IoT home automation kit with NodeMCU ESP8266, 4-channel relay module, DHT11 sensor, and soil moisture module.",
+      "price": 27.50,
+      "category": "IoT & Wireless",
+      "stock": 45,
+      "isBestProduct": false,
+      "images": [
+        "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 11,
+      "title": "Precision Soldering Iron & Tool Set",
+      "description": "60W adjustable temperature soldering iron with multimeter, desoldering pump, wire strippers, and solder wire.",
+      "price": 32.99,
+      "category": "Tools & Equipment",
+      "stock": 28,
+      "isBestProduct": false,
+      "images": [
+        "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 12,
+      "title": "Digital Multimeter & Oscilloscope Kit",
+      "description": "Handheld 2-in-1 digital multimeter and mini handheld digital oscilloscope for circuit diagnosis and wave measurement.",
+      "price": 65.00,
+      "category": "Tools & Equipment",
+      "stock": 15,
+      "isBestProduct": false,
+      "images": [
+        "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 13,
+      "title": "RFID & NFC Security Starter Set",
+      "description": "RC522 RFID reader module, keychain tags, smart cards, keypads, and solenoid door lock mechanism for security projects.",
+      "price": 21.99,
+      "category": "IoT & Wireless",
+      "stock": 38,
+      "isBestProduct": false,
+      "images": [
+        "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 14,
+      "title": "Quadcopter Drone Electronics Kit",
+      "description": "Brushless motors, ESC speed controllers, flight controller board, propellers, and lipo battery connector kit.",
+      "price": 89.99,
+      "category": "Robotics & Motors",
+      "stock": 12,
+      "isBestProduct": false,
+      "images": [
+        "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 15,
+      "title": "Solar Power Energy & Battery Manager Kit",
+      "description": "Monocrystalline solar panel, 18650 lithium battery charger board, voltage regulator, and power management module.",
+      "price": 38.50,
+      "category": "IoT & Wireless",
+      "stock": 27,
+      "isBestProduct": false,
+      "images": [
+        "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80"
+    }
+  ]
+}

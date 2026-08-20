@@ -1,0 +1,99 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-lg);
+    background-color: var(--secondary-background-color);
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+/* Brand Section */
+.brand {
+    max-width: 300px;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Section Headings */
+/* Quick Links Section */
+
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.links a {
+    transition: color 0.3s ease-in-out;
+}
+
+.links a:hover {
+    color: var(--secondary-font-color);
+}
+
+.social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.socialList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.socialList a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--main-border-radius);
+    background-color: var(--main-background-color);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.socialList a:hover {
+    border-color: var(--secondary-font-color);
+    transform: translateY(-3px);
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+/* Bottom Bar */
+.bottomBar {
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--main-font-color);
+    opacity: 0.75;
+    background-color: var(--main-background-color);
+}
