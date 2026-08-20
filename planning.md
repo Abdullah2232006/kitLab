@@ -1,9 +1,9 @@
 # Tasks
 -[ d ] Design the UI
--[ d ] Build the home page
--[ ] Build the products page
--[ d ] Build the cart page
--[ ] Build the sign in / up
+-[ d ] Build home page
+-[ ] Build products page
+-[ ] Build cart page
+-[ ] Build sign in / up
 
 # Home Page - done
 - Navigation Bar - done
