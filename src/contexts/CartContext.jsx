@@ -92,24 +92,16 @@ function CartProvider({ children }) {
     };
 
     // Calculate Total Price
-    const totalPrice = () => {
-        return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-    }
+    const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
     // Calculate Total Items
-    const totalItems = () => {
-        return cart.reduce((total, item) => total + item.quantity, 0);
-    }
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
     // Calculate Order Price
-    const orderPrice = () => {
-        return orders.reduce((total, order) => total + order.price * order.quantity, 0);
-    }
+    const orderPrice = orders.reduce((total, order) => total + order.price * order.quantity, 0);
 
     // Calculate Order Items
-    const orderItems = () => {
-        return orders.reduce((total, order) => total + order.quantity, 0);
-    }
+    const orderItems = orders.reduce((total, order) => total + order.quantity, 0);
 
 
     return(

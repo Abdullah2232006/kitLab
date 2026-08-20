@@ -124,8 +124,8 @@
         - [ d ] Decrease quantity function
         - [ d ] Add local storage to all functions
 - [ ] Create Cart page:
-    - [ ] Add Cart page routing
-    - [ ] Add Nav Bar Link / icon to nav bar
+    - [ d ] Add Cart page routing
+    - [ d ] Add Nav Bar Link / icon to nav bar
     - [ ] Display selected products
     - [ ] Display total price
     - [ ] Confirm Order Button:
