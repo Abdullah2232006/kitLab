@@ -2,7 +2,7 @@
 -[ d ] Design the UI
 -[ d ] Build home page
 -[ ] Build products page
--[ ] Build cart page
+-[ d ] Build cart page
 -[ ] Build sign in / up
 
 # Home Page - done
@@ -38,26 +38,16 @@
 - Filter Functionality:
     • Selecting a product name or category shows only matching products
 - Product Card Buttons:
-    • Add to Cart(Button one):
+    • Add to Cart - done
         If the user is not logged in → show alert → redirect to login page.
         If logged in → add product to cart, update total price.
-    • View Details (Button two) - done
+    • View Details - done
         Opens a popup/modal showing:
         • Product image
         • Description
         • Category
         • Price
         • Buttons: Close and Add to Cart
-- Cart Section:
-    • Show all added products, quantity, and individual price
-    • Display total price dynamically
-    • Each product has a Remove button
-    • Confirm Order Button:
-        Opens a popup/modal showing:
-        • Selected products
-        • Product images
-        • Total price
-        • Message: “Order Confirmed"
 
 
 ## Cart Section Refined Logic
@@ -123,18 +113,17 @@
         - [ d ] Increase quantity function
         - [ d ] Decrease quantity function
         - [ d ] Add local storage to all functions
-- [ ] Create Cart page:
+- [ d ] Create Cart page:
     - [ d ] Add Cart page routing
     - [ d ] Add Nav Bar Link / icon to nav bar
-    - [ ] Display selected products
-        - [ ] debug Cart.jsx
-        - [ ] debug ConfirmOrderModule
-        - [ ] debug  cart context functions implementation in card, product module
-        - [ ] Add added to cart message when clicking add to cart button
-    - [ ] Display total price
-    - [ ] Confirm Order Button:
-        - [ ] Opens a popup/modal showing:
-            - [ ] Selected products
-            - [ ] Product images
-            - [ ] Total price
-            - [ ] Message: “Order Confirmed"
+    - [ d ] Display selected products
+        - [ d ] debug Cart.jsx
+        - [ d ] debug ConfirmOrderModule
+        - [ d ] debug  cart context functions implementation in card, product module
+    - [ d ] Display total price
+    - [ d ] Confirm Order Button:
+        - [ d ] Opens a popup/modal showing:
+            - [ d ] Selected products
+            - [ d ] Product images
+            - [ d ] Total price
+            - [ d ] Message: “Order Confirmed"

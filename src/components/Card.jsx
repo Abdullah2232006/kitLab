@@ -7,7 +7,7 @@ function Card({ product }) {
     const { addProduct } = useCartContext()
     const imageSrc = product.thumbnail
     const price = product.price
-    const titleLimit = 23
+    const titleLimit = 20
     const decriptionLimit = 90
 
     const [isViewDetailsClicked, setIsViewDetailsClicked] = useState(false)
