@@ -59,8 +59,7 @@ function CartProvider({ children }) {
 
     // Remove Product from Cart
     const removeProduct = (product) => {
-        const id = typeof product === "object" ? product.id : product;
-        setCart(prevCart => prevCart.filter(item => item.id !== id));
+        setCart(prevCart => prevCart.filter(item => item.id !== product.id));
     };
 
     // Increase Product Quantity
@@ -72,18 +71,18 @@ function CartProvider({ children }) {
 
     // Decrease Product Quantity
     const decreaseQuantity = (product) => {
-        setCart(prevCart => prevCart.map(item => {
-            if (item.id === product.id) {
-                if (item.quantity === 1 || item.quantity < 1) {
-                    removeProduct(product);
-                } else {
-                    return { ...item, quantity: item.quantity - 1 };
-                }
-            } else {
-                return item;
+        setCart(prevCart => {
+            const target = prevCart.find(item => item.id === product.id);
+
+            if (target && target.quantity <= 1) {
+                return prevCart.filter(item => item.id !== product.id);
             }
-        }))
-    }
+            
+            return prevCart.map(item => 
+                item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
+            );
+        });
+    };
 
     // Confirm Order
     const confirmOrder = (order) => {
@@ -108,11 +107,17 @@ function CartProvider({ children }) {
         <CartContext.Provider value={{
             cart,
             orders,
+            setOrders,
+            setCart,
             addProduct,
             removeProduct,
             increaseQuantity,
             decreaseQuantity,
-            confirmOrder
+            confirmOrder,
+            totalPrice,
+            totalItems,
+            orderPrice,
+            orderItems
         }}>
             {children}
         </CartContext.Provider>
