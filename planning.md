@@ -1,12 +1,9 @@
 # Tasks
--[ d ] Revise React
 -[ d ] Design the UI
 -[ d ] Build the home page
 -[ ] Build the products page
 -[ ] Build the cart page
 -[ ] Build the sign in / up
--[ ] Add Bonus 1
--[ ] Add Bonus 2
 
 # Home Page - done
 - Navigation Bar - done
@@ -87,3 +84,52 @@
    - Open confirmation modal with items, total price, and success message.
    - Append current cart + timestamp + total to `orders`.
    - Empty the active cart (`setCart([])`).
+
+
+## Cart Section Pseudo Code:
+1. Create a Cart Context:
+    - It will called in App.jsx
+    - It is responsible for cart functionality:
+        - Cart array state
+        - Orders array state
+        - add to cart function
+        - remove from cart function
+        - increase quantity function
+    - decrease quantity function
+4. Create Cart page
+5. Cart page components:
+    • Cart items list
+    • Total price functionality
+    • Confirm order button
+6. Confirm order modal:
+    • Display selected products
+    • Display total price
+    • Display success message
+7. Add product to cart:
+    • Check if user is logged in
+    • If not logged in → alert & redirect to login page
+    • If logged in → add product to cart, update total price
+
+
+## Cart Section Implementation Plan:
+
+- [ ] Create a Cart Context (Logic): 
+    - [ ] It will be called in App.jsx
+    - [ ] It is responsible for cart functionality:
+        - [ ] Cart array state
+        - [ ] Orders array state
+        - [ ] Add to cart function
+        - [ ] Remove from cart function
+        - [ ] Increase quantity function
+        - [ ] Decrease quantity function
+- [ ] Create Cart page:
+    - [ ] Add Nav Bar Link / icon to nav bar
+    - [ ] Add Cart page routing
+    - [ ] Display selected products
+    - [ ] Display total price
+    - [ ] Confirm Order Button:
+        - [ ] Opens a popup/modal showing:
+            - [ ] Selected products
+            - [ ] Product images
+            - [ ] Total price
+            - [ ] Message: “Order Confirmed"
