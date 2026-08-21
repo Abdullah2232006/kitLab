@@ -13,7 +13,7 @@ function NavBar() {
                 <Link to="/">KitLab</Link>
             </div>
             <div className={styles.links}>
-                {/* <Link to="/">Categories</Link> */}
+                <Link to="/">Home</Link>
                 <Link to="/products">Products</Link>
                 <a href="/#contact">Contact Us</a>
             </div>
