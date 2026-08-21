@@ -34,10 +34,10 @@ function Features() {
     ];
 
     return (
-        <div className={styles.container}>
+        <section className={styles.container}>
             <div className={styles.header}>
                 <h2 className={styles.title}>Why Choose KitLab</h2>
-                <p>Designed by hardware enthusiasts for makers, engineers, and students.</p>
+                <p className={styles.subtitle}>Designed by hardware enthusiasts for makers, engineers, and students.</p>
             </div>
 
             <div className={styles.cardsContainer}>
@@ -48,12 +48,12 @@ function Features() {
                                 <img src={feature.icon} alt={feature.title} />
                             </div>
                             <h3 className={styles.cardTitle}>{feature.title}</h3>
-                            <p>{feature.description}</p>
+                            <p className={styles.cardDescription}>{feature.description}</p>
                         </div>
                     ))
                 }
             </div>
-        </div>
+        </section>
     );
 }
 
