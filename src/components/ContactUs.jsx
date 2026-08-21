@@ -125,7 +125,7 @@ function ContactUs() {
 
                     <div className={styles.devLinks}>
                         <a
-                            href="https://portfolio.dev"
+                            href="https://abdullah-portfolio-sooty-two.vercel.app/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.devBtn}
@@ -140,7 +140,7 @@ function ContactUs() {
                         </a>
 
                         <a
-                            href="https://wa.me/1234567890"
+                            href="https://wa.me/+201157796974"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.devBtn}
@@ -153,7 +153,9 @@ function ContactUs() {
                         </a>
 
                         <a
-                            href="mailto:developer@kitlab.io"
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=abdullah.223.mohamed@gmail.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className={styles.devBtn}
                             aria-label="Email Developer"
                         >
@@ -165,7 +167,7 @@ function ContactUs() {
                         </a>
 
                         <a
-                            href="https://github.com"
+                            href="https://github.com/Abdullah2232006"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.devBtn}
@@ -178,7 +180,7 @@ function ContactUs() {
                         </a>
 
                         <a
-                            href="https://linkedin.com"
+                            href="https://linkedin.com/in/abdullah-mohamed-7b3b33264"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.devBtn}

@@ -20,9 +20,7 @@ function NavBar() {
     // Prevent scrolling in the application when menu is open
     useEffect(() => {
         isMenuOpen ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
-        return (
-            document.body.style.overflow = 'auto'
-        )
+        return () => document.body.style.overflow = 'auto'
     }, [isMenuOpen])
 
 
