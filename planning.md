@@ -1,9 +1,10 @@
 # Tasks
 -[ d ] Design the UI
 -[ d ] Build home page
--[ ] Build products page
+-[ d ] Build products page
 -[ d ] Build cart page
 -[ ] Build sign in / up
+-[ ] Implement Authentication functionality in all required places in the web app
 
 # Home Page - done
 - Navigation Bar - done
@@ -29,15 +30,20 @@
     • Contact information
     • Elements should have simple hover/animation effect
 
-# Products Page
+
+
+# Products Page - done
+
+## Tasks
+
 - Display all products with - done
     • Image
     • Product name/title
     • Category
     • Price
-- Filter Functionality:
+- Filter Functionality - done
     • Selecting a product name or category shows only matching products
-- Product Card Buttons:
+- Product Card Buttons - done
     • Add to Cart - done
         If the user is not logged in → show alert → redirect to login page.
         If logged in → add product to cart, update total price.
@@ -50,7 +56,9 @@
         • Buttons: Close and Add to Cart
 
 
-## Cart Section Refined Logic
+# Cart Page - done
+
+## Cart Section Logic:
 
 1. State Structure:
    - `cart` (Array of objects: `{ ...product, quantity }`)
@@ -75,8 +83,7 @@
    - Append current cart + timestamp + total to `orders`.
    - Empty the active cart (`setCart([])`).
 
-
-## Cart Section Pseudo Code:
+## Cart Section Refined Logic:
 1. Create a Cart Context:
     - It will called in App.jsx
     - It is responsible for cart functionality:
@@ -127,3 +134,4 @@
             - [ d ] Product images
             - [ d ] Total price
             - [ d ] Message: “Order Confirmed"
+
