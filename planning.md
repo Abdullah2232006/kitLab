@@ -3,6 +3,7 @@
 -[ d ] Build home page
 -[ d ] Build products page
 -[ d ] Build cart page
+-[ d ] Make it responsive
 -[ ] Build sign in / up
 -[ ] Implement Authentication functionality in all required places in the web app
 
