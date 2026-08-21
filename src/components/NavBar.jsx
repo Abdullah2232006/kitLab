@@ -15,7 +15,7 @@ function NavBar() {
             <div className={styles.links}>
                 <Link to="/">Categories</Link>
                 <Link to="/products">Products</Link>
-                <Link to="/">Contact Us</Link>
+                <a href="/#contact">Contact Us</a>
             </div>
             <div className={styles.actions}>
                 <Link to="/cart" className={styles.cartBtn} aria-label="Shopping Cart">
