@@ -30,7 +30,7 @@
 ## Live Demo
 
 **Experience the Live Application on Vercel:**  
-[KitLab Live Demo](https://vercel.com) *(Replace with your live deployment URL)*
+[KitLab Live Demo](https://kit-lab-ecru.vercel.app)
 
 ---
 
